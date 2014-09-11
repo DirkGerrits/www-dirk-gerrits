@@ -1,0 +1,9 @@
+<small>Posted on <time datetime="$isoDate$">$date$</time></small>
+
+$if(teaser)$
+  $teaser$
+
+  <p><a href="$url$" title="Read more&hellip;">Read more&hellip;</a></p>
+$else$
+  $body$
+$endif$

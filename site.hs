@@ -1,6 +1,7 @@
 --------------------------------------------------------------------------------
 {-# LANGUAGE OverloadedStrings #-}
 import           Data.Monoid ((<>))
+import           Control.Monad ((>=>))
 import           Hakyll
 import           Text.Pandoc.Definition
 import           Text.Pandoc.Options
@@ -127,28 +128,21 @@ main = do
     match "posts/*" $ do
         route $ setExtension "html"
         compile $ myPandocPostCompiler
-            >>= loadAndApplyTemplate "templates/post.html" blogContext
-            >>= externalizeUrls
             >>= saveSnapshot "postContent"
-            >>= unexternalizeUrls
+            >>= loadAndApplyTemplate "templates/post.html" blogContext
             >>= loadAndApplyTemplate "templates/default.html" blogContext
             >>= relativizeUrls
   
     create ["rss.xml"] $ do
         route idRoute
         compile $ do
-            let feedContext = blogContext <> bodyField "description"
-            posts <- fmap (take 10) . recentFirst =<<
-                loadAllSnapshots "posts/*" "postContent"
+            snapshots <- recentFirst =<< loadAllSnapshots "posts/*" "postContent"
+            let teaserContext = teaserField "teaser" "postContent" <> blogContext
+            let feedEntry = loadAndApplyTemplate "templates/feed-post.html" teaserContext
+                        >=> externalizeUrls
+            let feedContext = bodyField "description" <> blogContext
+            posts <- mapM feedEntry snapshots
             renderRss myFeedConfiguration feedContext posts
-
-    create ["atom.xml"] $ do
-        route idRoute
-        compile $ do
-            let feedContext = blogContext <> bodyField "description"
-            posts <- fmap (take 10) . recentFirst =<<
-                loadAllSnapshots "posts/*" "postContent"
-            renderAtom myFeedConfiguration feedContext posts
 
     create ["posts.html"] $ do
         route directoryRoute

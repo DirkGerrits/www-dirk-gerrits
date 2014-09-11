@@ -13,6 +13,8 @@ anymore...  Last weekend Erik died in Canada, and while I still don't
 believe it, I'll have to learn to accept that this means he died in
 real life.
 
+<!--more-->
+
 Erik has helped me through some really rough times, "threatening" even
 to take the next plane to the Netherlands to straighten me out.  I
 might not even be here to write this if it hadn't been for him.  And

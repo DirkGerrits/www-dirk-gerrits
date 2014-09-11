@@ -13,6 +13,8 @@ nice installer can be created for it, like the ones for
 now the process is rather tricky and involves editing and compiling
 Xournal's source code.
 
+<!--more-->
+
 **Update:** Denis Auroux, the author of Xournal, has graciously
 incorporated my code changes into Xournal and made an official Windows
 release available on the [Xournal

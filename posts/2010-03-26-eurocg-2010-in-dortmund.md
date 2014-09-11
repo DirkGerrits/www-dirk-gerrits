@@ -11,6 +11,8 @@ Vahrenhold](http://ls11-www.cs.uni-dortmund.de/staff/jv) and his team
 made this into a very smoothly run event, even in the presence of some
 unforeseen cancellations of talks.
 
+<!--more-->
+
 A lot of interesting topics were presented in talks ranging in quality
 from moderate to excellent. I have to give special mention to [Amit
 Chattopadhyay](http://www.math.rug.nl/~amit/Site/Amit_Chattopadhyay.html).

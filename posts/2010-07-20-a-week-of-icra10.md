@@ -11,6 +11,8 @@ they decided to hold the event so far away from the rest of the world.)
 
 ![View from convention center balcony](/images/panorama.jpg)
 
+<!--more-->
+
 # Size
 
 There were roughly 1,600 registered attendees, so the event was spread
