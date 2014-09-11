@@ -1,0 +1,352 @@
+/* Reset CSS styling done by browsers (based on HTML5 Doctor CSS Reset). */
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+body {
+  line-height: 1;
+}
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section {
+  display: block;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote: before, blockquote: after,
+q: before, q: after {
+  content: '';
+  content: none;
+}
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+/* change colours to suit your needs */
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none;
+}
+/* change colours to suit your needs */
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* change border colour to suit your needs */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
+  padding: 0;
+}
+input, select {
+  vertical-align: middle;
+}
+
+/* Overall */
+body {
+  font-family: Georgia, serif;
+  font-size: 1.1875em; /* 19px */
+  line-height: 1.5;    /* 28.5px */
+  background-color: #f1f1f1;
+  color: #333333;
+}
+body > header, body > footer {
+  max-width: 940px;
+  margin: 0 auto;
+}
+/* <div class="main>" should really be <main>, but various browsers
+   (such as MSIE and the one in Android 2.3) don't support <main> */
+body > .main {
+  text-align: justify;
+  max-width: 640px;
+  margin: 50px auto;
+  padding: 1em 30px;
+  background: white;
+  border: 1px solid #cccccc;
+  box-shadow: 5px 5px 10px #777777;
+}
+a {
+  color: #377eb8;
+  text-decoration: none;
+}
+a:visited {
+  color: #984ea3;
+}
+a:hover {
+  text-decoration: underline;
+}
+ul, ol {
+  padding-left: 27.5px;
+}
+table, ul, ol {
+  margin-bottom: 0.5em;
+}
+th, td {
+  margin: 1px;
+  padding: 1px;    
+}
+code, pre, tt {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.9em; /* 0.9 for <code>...</code>, 0.9*0.9=0.81 for <pre><code>...</code></pre> */
+}
+.note {
+  font-size: 0.9em;
+  color: #666666;
+}
+.float {
+  float: right;
+  margin-left: 25px;    
+  margin-bottom: 25px;    
+}
+
+/* Header */
+header img {
+  max-width: 100%;
+  height: auto;
+}
+#mainNav, #subNav {
+  width: 100%;
+  font-family: sans-serif;
+  position: relative;
+}
+nav ul {
+  list-style: none;
+  padding: 0 10px;
+  margin: 0;
+  vertical-align: middle;
+  position: relative;
+  -webkit-border-bottom-right-radius: 10px;
+  -webkit-border-bottom-left-radius: 10px;
+  -moz-border-radius-bottomright: 10px;
+  -moz-border-radius-bottomleft: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+nav li {
+  display: inline-block;
+  margin-right: 2em;
+}
+#mainNav ul {
+  background-color: #222222;
+  padding-left: 20px;
+}
+nav {
+  color: #f1f1f1;
+}
+nav a, nav a:visited, nav a:hover, nav span {
+  text-decoration: none;
+  display: inline-block;
+  color: #f1f1f1;
+}
+#mainNav a, #mainNav .selected {
+  padding: 7px 0;
+}
+#mainNav a:hover, #mainNav .selected {
+  border-bottom: 7px solid;
+  padding-bottom: 0;
+}
+#mainNav .social-media {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  margin-top: -16px;
+  margin-right: 0;
+}
+#mainNav .social-media a {
+  vertical-align: middle;
+  padding: 0;
+}
+#mainNav .social-media a:hover {
+  border-bottom: none;
+  opacity: 0.8;
+  filter: alpha(opacity=80); /* for MSIE <=8 */
+}
+
+#mainNav .about a, #mainNav .about .selected {
+  color: #ff7f00;
+  border-bottom-color: #ff7f00;
+}
+#mainNav .blog a, #mainNav .blog .selected {
+  color: #377eb8;
+  border-bottom-color: #377eb8;
+}
+#mainNav .publications a, #mainNav .publications .selected {
+  color: #984ea3;
+  border-bottom-color: #984ea3;
+}
+#mainNav .programming a, #mainNav .programming .selected {
+  color: #4daf4a;
+  border-bottom-color: #4daf4a;
+}
+
+#subNav {
+  font-weight: bold;
+  font-size: 0.9em;
+  margin-bottom: 4em;
+}
+#subNav ul {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  text-align: center;
+}
+#subNav li {
+  margin-right: 0;
+}
+#subNav span {
+  color: #888888;
+}
+#subNav a:hover {
+  text-decoration: underline;
+}
+#subNav .previous, #subNav .first {
+  float: left;
+}
+#subNav .next, #subNav .last {
+  float: right;
+  margin-right: 0;  
+}
+#subNav .blog {
+  background-color: #295f8a;
+}
+#subNav .publications {
+  background-color: #723b7a; 
+}
+
+/* Brewer Set1 colors */
+/*
+       original  darkened
+red    #e41a1c   #ab1415
+blue   #377eb8   #295f8a
+green  #4daf4a   #3a8338
+purple #984ea3   #723b7a
+orange #ff7f00   #bf5f00
+*/
+
+
+/* Main */
+h1, h2, h3, h4, h5, h6 { color: #222; }
+h1 { font-size: 2em; line-height: 1.25; margin-bottom: .67em; }
+h2 { font-size: 1.5em; margin: .75em 0; }
+h3 { font-size: 1.17em; margin: .83em 0; }
+h4, p { margin: 1.12em 0; }
+h5 { font-size: .83em; margin: 1.5em 0; }
+h6 { font-size: .75em; margin: 1.67em 0; }
+
+.subheader {
+  font-size: .75em;
+  margin-top: -1.5em;
+  margin-bottom: 2em;
+  color: #555555;
+}
+
+img {
+  margin: 0 auto;
+  display: block;
+}
+figure {
+  text-align: center;
+}
+figcaption {
+  font-size: 0.9em;
+  margin-top: 15px;
+}
+
+tr > .date {
+  text-align: right;
+  padding-right: 0.5em;    
+}
+tr > .title {
+  text-align: left;
+  padding-left: 0.5em;    
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  font-size: 0.75em;
+  margin: 0;
+}
+footer p {
+  margin-bottom: 5px;
+}
+
+/* Publications */
+.unpublished {
+  color: #377eb8;
+}
+.workshop {
+  color: #4daf4a;
+}
+.conference, .msc-thesis {
+  color: #984ea3;
+}
+.journal, .phd-thesis {
+  color: #ff7f00;
+}
+
+/* WORKAROUND: "text-decoration: line-through;" doesn't seem centered vertically */
+del {
+  text-decoration: none;
+  position: relative;
+}
+del:after {
+  border-bottom: 1px solid #333333;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 60%;
+}
+
+/* Syntax highlighting (generated by Pandoc) */
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode, table.sourceCode pre
+   { margin: 0; padding: 0; border: 0; vertical-align: baseline; border: none; }
+td.lineNumbers { border-right: 1px solid #AAAAAA; text-align: right; color: #AAAAAA; padding-right: 5px; padding-left: 5px; }
+td.sourceCode { padding-left: 5px; }
+.sourceCode span.kw { color: #007020; font-weight: bold; }
+.sourceCode span.dt { color: #902000; }
+.sourceCode span.dv { color: #40a070; }
+.sourceCode span.bn { color: #40a070; }
+.sourceCode span.fl { color: #40a070; }
+.sourceCode span.ch { color: #4070a0; }
+.sourceCode span.st { color: #4070a0; }
+.sourceCode span.co { color: #60a0b0; font-style: italic; }
+.sourceCode span.ot { color: #007020; }
+.sourceCode span.al { color: red; font-weight: bold; }
+.sourceCode span.fu { color: #06287e; }
+.sourceCode span.re { }
+.sourceCode span.er { color: red; font-weight: bold; }

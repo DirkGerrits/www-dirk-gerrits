@@ -1,0 +1,15 @@
+<h1>All posts</h1>
+
+<table>
+  <thead>
+    <tr><th class="date">Date</th><th class="title">Title</th></tr>
+  </thead>
+  <tbody>
+    $for(posts)$
+    <tr>
+      <td class="date"><time datetime="$isoDate$">$date$</time></td>
+      <td class="title"><a href="$url$">$title$</a></td>
+    </tr>
+    $endfor$
+  </tbody>
+</table>
