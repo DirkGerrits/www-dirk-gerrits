@@ -98,6 +98,8 @@ main = do
                      defaultContext
   let publicationsContext = constField "publications" "yes" <>
                             defaultContext
+  let programmingContext = constField "programming" "yes" <>
+                           defaultContext
   let blogContext = constField "blog" "yes" <>
                     dateField "date" "%e %B %Y" <>
                     dateField "isoDate" "%0Y-%m-%d" <>
@@ -123,6 +125,12 @@ main = do
         route   directoryRoute
         compile $ myPandocCompiler
             >>= loadAndApplyTemplate "templates/default.html" publicationsContext
+            >>= relativizeUrls
+
+    match "programming.md" $ do
+        route   directoryRoute
+        compile $ myPandocCompiler
+            >>= loadAndApplyTemplate "templates/default.html" programmingContext
             >>= relativizeUrls
 
     match "posts/*" $ do
