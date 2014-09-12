@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/css/default.css">
   </head>
   <body>
-    <header role="banner">
+    <header role="banner" id="top">
       <img src="/images/joy.jpg" width="940" height="198"/>
       <nav role="navigation">
         <div id="mainNav">
@@ -38,7 +38,7 @@
               <a href="mailto:dirk.gerrits@gmail.com" title="E-mail me"><img src="/images/email-icon-28x28.png" alt="E-mail me"/></a>
               <a href="https://www.facebook.com/dirk.gerrits" title="My Facebook profile"><img src="/images/facebook-icon-28x28.png" alt="My Facebook profile"/></a>
               <a href="https://nl.linkedin.com/in/dirkgerrits" title="My LinkedIn profile"><img src="/images/linked-in.png" alt="My LinkedIn profile"/></a>
-              <a href="#" title="Subscribe to my blog via RSS"><img src="/images/rss-feed-icon-28x28.png" alt="Subscribe to my blog via RSS"/></a>
+              <a href="/rss.xml" title="Subscribe to my blog via RSS"><img src="/images/rss-feed-icon-28x28.png" alt="Subscribe to my blog via RSS"/></a>
               <a href="#" title="Subscribe to my blog via e-mail"><img src="/images/email-feed-icon-28x28.png" alt="Subscribe to my blog via e-mail"/></a>
             </li>
           </ul>
@@ -86,8 +86,10 @@
       <article role="article">
         $body$
       </article>
-    </div><!-- .main -->
+    </div>
     <footer role="contentinfo">
+      <a href="#top" title="Back to top" class="back-top left">&And;</a>
+      <a href="#top" title="Back to top" class="back-top right">&And;</a>
       <p>Copyright &copy; 2014 Dirk Gerrits.  All Rights Reserved.</p>
     </footer>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
