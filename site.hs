@@ -30,7 +30,8 @@ makePandocCompiler extraTransform = pandocCompilerWithTransform
     (defaultHakyllWriterOptions {
         writerHTMLMathMethod = MathJax "",
 	writerHtml5 = True,
-	writerSectionDivs = True -- wrap sections in HTML5 <section> tags
+	writerSectionDivs = True, -- wrap sections in HTML5 <section> tags
+        writerEmailObfuscation = NoObfuscation -- e-mail spam is a solved problem
     })
     (walk insertHyphenation      -- since HTML+CSS still can't hyphenate in 2014
      . walk useAltAsDefaultTitle -- use 'alt' text as 'title' if no 'title' is given
@@ -63,6 +64,7 @@ plain (RawInline _ s) = s
 plain (Link alt _) = concatMap plain alt
 plain (Image alt _) = concatMap plain alt
 plain (Note _) = ""
+plain x = "[[[UNKNOWN]]]" ++ show x ++ "[[[/UNKNOWN]]]"
 
 insertHyphenation :: Inline -> Inline
 insertHyphenation (Str s) = Str $ softHyphenate s
@@ -116,11 +118,23 @@ main = do
         route   idRoute
         compile compressCssCompiler
 
-    match "about.md" $ do
+    -- The contents of the about page are currently largely hard-coded
+    -- in the template, because Pandoc would mangle the delicate
+    -- layout of those sections too much.  Two sections remain out of
+    -- the template so that my Pandoc-based hyphenator can run on them.
+    match (fromList ["blurb.html", "experience.html"]) $ compile myPandocCompiler
+    create ["about.html"] $ do
         route   directoryRoute
-        compile $ myPandocCompiler
-            >>= loadAndApplyTemplate "templates/default.html" aboutContext
-            >>= relativizeUrls
+        compile $ do
+            blurb <- loadBody "blurb.html"
+            experience <- loadBody "experience.html"
+            let aboutContext' = constField "blurb" blurb <>
+                                constField "experience" experience <>
+                                aboutContext
+            makeItem ""
+                >>= loadAndApplyTemplate "templates/about.html" aboutContext'
+                >>= loadAndApplyTemplate "templates/default.html" aboutContext'
+                >>= relativizeUrls
 
     match "publications.md" $ do
         route   directoryRoute

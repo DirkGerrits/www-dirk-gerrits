@@ -21,7 +21,7 @@ time, mark, audio, video {
 }
 html, body {
   line-height: 1;
-  height: 100%;    
+  height: 100%;
 }
 article,aside,details,figcaption,figure,
 footer,header,hgroup,menu,nav,section {
@@ -98,14 +98,14 @@ header, footer {
   border: 1px solid #cccccc;
   box-shadow: 5px 5px 10px #777777;
 }
-a {
+a, a:link {
   color: #377eb8;
   text-decoration: none;
 }
 a:visited {
   color: #984ea3;
 }
-a:hover {
+a:active, a:hover {
   text-decoration: underline;
 }
 ul, ol {
@@ -114,22 +114,12 @@ ul, ol {
 table, ul, ol {
   margin: 0.5em 0;
 }
-th, td {
-  margin: 1px;
-  padding: 1px;    
+li {
+  margin-top: 0.5em;
 }
 code, pre, tt {
   font-family: "Courier New", Courier, monospace;
   font-size: 0.9em; /* 0.9 for <code>...</code>, 0.9*0.9=0.81 for <pre><code>...</code></pre> */
-}
-.note {
-  font-size: 0.9em;
-  color: #666666;
-}
-.float {
-  float: right;
-  margin-left: 25px;    
-  margin-bottom: 25px;    
 }
 
 /**********************************************************************/
@@ -235,7 +225,7 @@ nav a, nav a:visited, nav a:hover, nav span {
   display: inline-block;
   width: 100%;
 }
-/* This adds a second line, however, so we need to shift the 
+/* This adds a second line, however, so we need to shift the
    menu up one line... */
 #subNav ul:before {
   content: '';
@@ -269,7 +259,7 @@ nav a, nav a:visited, nav a:hover, nav span {
   background-color: #295f8a;
 }
 #subNav .publications {
-  background-color: #723b7a; 
+  background-color: #723b7a;
 }
 
 /* Brewer Set1 colors */
@@ -298,29 +288,113 @@ h6 { font-size: .75em; margin: 1.67em 0; }
   margin-bottom: 2em;
   color: #555555;
 }
+li > p {
+  margin-bottom: 0;
+}
 img {
-  margin: 0 auto;
-  display: block;
+  display: inline-block;
+  vertical-align: middle;
 }
 figure {
   text-align: center;
+}
+figure img {
+  margin: 0 auto;
+  display: block;
 }
 figcaption {
   font-size: 0.9em;
   margin-top: 15px;
 }
 
+/* About */
+hr {
+  margin: 0;
+}
+aside {
+  display: block;
+  float: right;
+  margin-left: 2.25em;
+  margin-bottom: 1em;
+}
+#my-name {
+  font-size: 1.2em;
+  color: #377eb8;
+}
+#my-passion {
+  font-size: 2em;
+  position: relative;
+  top: 0.125em;
+  color: #377eb8;
+}
+.highlight {
+  color: #377eb8;
+}
+.midtone {
+  color: #984ea3;
+}
+#contact {
+  font-size: 0.9em;
+  width: 250px;
+  overflow: visible;
+}
+#contact a {
+  width: 15.5em;
+  display: block;
+  margin-bottom: -1.25em;
+}
+#contact a span {
+  margin-left: 0.5em;
+}
+#contact img {
+  width: 19px;
+  height: auto;
+}
+.column1, .column2 {
+  width: 50%;
+  text-align: left;
+  margin-bottom: 1em;
+}
+.column1 {
+  float: left;
+}
+.column2 {
+  float: right;
+}
+.column1 > ul {
+  margin-right: 1em;
+}
+.column2 > ul {
+  margin-left: 1em;
+}
+.column1 ul li ul {
+  list-style-type: disc;
+}
+.column1 ul li ul li {
+  float: left;
+}
+section, li {
+  clear: both;
+}
+
 /* Blog */
 tr > .date {
   text-align: right;
-  padding-right: 0.5em;    
+  padding-right: 1em;
 }
 tr > .title {
   text-align: left;
-  padding-left: 0.5em;    
 }
 
 /* Publications */
+.note {
+  font-style: italic;
+}
+.note, .longnote {
+  font-size: 0.9em;
+  color: #666666;
+  margin-bottom: 0.25em;
+}
 .unpublished {
   color: #377eb8;
 }
@@ -336,10 +410,9 @@ tr > .title {
 
 /* Programming */
 tr > .project {
-  padding-right: 0.5em;    
+  padding-right: 1em;
 }
 tr > .languages {
-  padding-left: 0.5em;    
 }
 
 /**********************************************************************/
@@ -363,7 +436,7 @@ footer p {
 }
 .back-top, .back-top:visited {
   font-size: 1.5em;
-  color: #f1f1f1;    
+  color: #f1f1f1;
 }
 .back-top:hover {
   text-decoration: none;
