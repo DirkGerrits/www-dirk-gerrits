@@ -132,6 +132,7 @@ main = do
             >>= loadAndApplyTemplate "templates/post.html" blogContext
             >>= loadAndApplyTemplate "templates/default.html" blogContext
             >>= relativizeUrls
+            >>= saveSnapshot "finalizedPost"
   
     create ["rss.xml"] $ do
         route idRoute
@@ -158,13 +159,12 @@ main = do
                 >>= loadAndApplyTemplate "templates/default.html" archiveContext
                 >>= relativizeUrls
 
-{-
     create ["index.html"] $ do
         route idRoute
         compile $ do
-          latestPost <- fmap head . recentFirst =<< loadAll "posts/*"
-          return latestPost
--}
+          latestPost <- fmap head . recentFirst =<< loadAllSnapshots "posts/*" "finalizedPost"
+          makeItem (itemBody latestPost) :: Compiler (Item String)
+
     match "templates/*" $ compile templateCompiler
   where
     anyGlob = foldr1 (.||.) . map fromGlob
@@ -178,7 +178,7 @@ myFeedConfiguration = FeedConfiguration
     { feedTitle       = "DirkGerrits.com"
     , feedDescription = "Personal blog of Dirk Gerrits"
     , feedAuthorName  = "Dirk Gerrits"
-    , feedAuthorEmail = "dirk.gerrits@gmial.com"
+    , feedAuthorEmail = "dirk.gerrits@gmail.com"
     , feedRoot        = "http://dirkgerrits.com"
     }
 
