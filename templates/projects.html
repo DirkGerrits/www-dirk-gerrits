@@ -1,0 +1,15 @@
+<h1>Programming projects</h1>
+
+<table>
+  <thead>
+    <tr><th>Project</th><th>Languages</th></tr>
+  </thead>
+  <tbody>
+    $for(projects)$
+    <tr>
+      <td class="project"><a href="$source$" title="Source repository for $name$">$name$</a></td>
+      <td class="languages">$languages$</td>
+    </tr>
+    $endfor$
+  </tbody>
+</table>

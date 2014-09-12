@@ -9,7 +9,8 @@ import           Text.Pandoc.Shared (headerShift)
 import           Text.Pandoc.Walk (walk)
 import           Text.Hyphenation
 import           Text.Regex.TDFA (getAllMatches, (=~), MatchOffset, MatchLength)
-import           Data.List (intercalate, isPrefixOf, isSuffixOf, sort, (\\))
+import           Data.Ord (comparing)
+import           Data.List (intercalate, isPrefixOf, isSuffixOf, sort, sortBy, (\\))
 import           Data.Char (chr)
 import qualified Data.Map.Strict as M
 import           System.FilePath (dropExtension, replaceExtension)
@@ -127,11 +128,19 @@ main = do
             >>= loadAndApplyTemplate "templates/default.html" publicationsContext
             >>= relativizeUrls
 
-    match "programming.md" $ do
-        route   directoryRoute
-        compile $ myPandocCompiler
-            >>= loadAndApplyTemplate "templates/default.html" programmingContext
-            >>= relativizeUrls
+    match "projects/*" $ compile myPandocCompiler
+    create ["programming.html"] $ do
+        route directoryRoute
+        compile $ do
+            projects <- return . sortBy (comparing itemIdentifier)
+                    =<< loadAll "projects/*.md"
+            let projectsContext =
+                    listField "projects" defaultContext (return projects) <>
+                    programmingContext
+            makeItem ""
+                >>= loadAndApplyTemplate "templates/projects.html" projectsContext
+                >>= loadAndApplyTemplate "templates/default.html" projectsContext
+                >>= relativizeUrls
 
     match "posts/*" $ do
         route $ setExtension "html"
@@ -161,7 +170,6 @@ main = do
                     listField "posts" blogContext (return posts) <>
                     constField "archive" "yes"                   <>
                     blogContext
-
             makeItem ""
                 >>= loadAndApplyTemplate "templates/archive.html" archiveContext
                 >>= loadAndApplyTemplate "templates/default.html" archiveContext
