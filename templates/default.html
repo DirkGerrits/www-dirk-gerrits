@@ -22,7 +22,7 @@
             $if(blog)$
             <li class="blog"><span class="selected">Blog</span></li>
             $else$
-            <li class="blog"><a href="/">Blog</a></li>
+            <li class="blog"><a href="/posts/">Blog</a></li>
             $endif$
             $if(publications)$
             <li class="publications"><span class="selected">Publications</span></li>
@@ -43,30 +43,40 @@
             </li>
           </ul>
         </div>
-        $if(archive)$
-        $else$$if(blog)$
+        $if(blog)$
         <div id="subNav">
           <ul class="blog">
             $if(previousPost)$
-            <li class="previous"><a href="$previousPost$">&laquo; Previous post</a></li>
+            <li><a href="$previousPost$">&laquo; Previous post</a></li>
             $else$
-            <li class="previous"><span>&laquo; Previous post</span></li>
+            <li><span>&laquo; Previous post</span></li>
             $endif$
-            <li><a href="/posts/">All posts</a></li>
-            $if(nextPost)$
-            <li class="next"><a href="$nextPost$">Next post &raquo;</a></li>
+            $if(archive)$
+            <li><a href="/">Latest post</a></li>
+            $else$$if(nextPost)$
+            <li><a href="/">Latest post</a></li>
             $else$
-            <li class="next"><span>Next post &raquo;</span></li>
+            <li><span class="selected">Latest post</span></li>
+            $endif$$endif$
+            $if(archive)$
+            <li><span class="selected">All posts</span></li>
+            $else$
+            <li><a href="/posts/">All posts</a></li>
+            $endif$
+            $if(nextPost)$
+            <li><a href="$nextPost$">Next post &raquo;</a></li>
+            $else$
+            <li><span>Next post &raquo;</span></li>
             $endif$
           </ul>
         </div>
-        $endif$$endif$
+        $endif$
         $if(publications)$
         <div id="subNav">
           <ul class="publications">
-            <li class="first"><a href="#conference-and-journal-papers">Conference &amp; journal papers</a></li>
+            <li><a href="#conference-and-journal-papers">Conference &amp; journal papers</a></li>
             <li><a href="#theses-and-dissertations">Theses &amp; dissertations</a></li>
-            <li class="last"><a href="#unpublished-articles">Unpublished articles</a></li>
+            <li><a href="#unpublished-articles">Unpublished articles</a></li>
           </ul>
         </div>
         $endif$

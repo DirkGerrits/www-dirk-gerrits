@@ -217,27 +217,51 @@ nav a, nav a:visited, nav a:hover, nav span {
   font-size: 0.9em;
   margin-bottom: 4em;
 }
+/* We want to justify the elements of the subNav menu.  The best
+   way to do that is with "text-align-last: justify", but WebKit
+   does not support this yet.  So, we need to use a trick. */
 #subNav ul {
   position: absolute;
   left: 10px;
   right: 10px;
-  text-align: center;
+  text-align: justify;
 }
+/* To get the "text-align-last: justify" effect, we add a full-
+   width element at the end. */
+#subNav ul:after {
+  content: '';
+  display: inline-block;
+  width: 100%;
+}
+/* This adds a second line, however, so we need to shift the 
+   menu up one line... */
+#subNav ul:before {
+  content: '';
+  display: block;
+  width: 100%;
+  margin-bottom: -1.5em;
+}
+/* ... and then shift its contents down one line again. */
 #subNav li {
   margin-right: 0;
+  position: relative;
+  top: 1.5em;
 }
+/* Note that shifting #subNav upwards makes it overlap
+   #mainNav, which can be corrected by giving #mainNav a
+   higher z-index. */
+#mainNav ul {
+  z-index: 1;
+}
+
 #subNav span {
   color: #888888;
 }
-#subNav a:hover {
+#subNav .selected {
+  color: #f1f1f1;
+}
+#subNav a:hover, #subNav .selected {
   text-decoration: underline;
-}
-#subNav .previous, #subNav .first {
-  float: left;
-}
-#subNav .next, #subNav .last {
-  float: right;
-  margin-right: 0;  
 }
 #subNav .blog {
   background-color: #295f8a;
