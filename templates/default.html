@@ -9,84 +9,87 @@
     <link rel="stylesheet" href="/css/default.css">
   </head>
   <body>
-    <header role="banner" id="top">
-      <img src="/images/joy.jpg" width="940" height="198"/>
-      <nav role="navigation">
-        <div id="mainNav">
-          <ul>
-            $if(about)$
-            <li class="about"><span class="selected">Dirk Gerrits</span></li>
-            $else$
-            <li class="about"><a href="/about/">Dirk Gerrits</a></li>
-            $endif$
-            $if(blog)$
-            <li class="blog"><span class="selected">Blog</span></li>
-            $else$
-            <li class="blog"><a href="/posts/">Blog</a></li>
-            $endif$
-            $if(publications)$
-            <li class="publications"><span class="selected">Publications</span></li>
-            $else$
-            <li class="publications"><a href="/publications/">Publications</a></li>
-            $endif$
-            $if(programming)$
-            <li class="programming"><span class="selected">Programming</span></li>
-            $else$
-            <li class="programming"><a href="/programming/">Programming</a></li>
-            $endif$
-            <li class="social-media">
-              <a href="mailto:dirk.gerrits@gmail.com" title="E-mail me"><img src="/images/email-icon-28x28.png" alt="E-mail me"/></a>
-              <a href="https://www.facebook.com/dirk.gerrits" title="My Facebook profile"><img src="/images/facebook-icon-28x28.png" alt="My Facebook profile"/></a>
-              <a href="https://nl.linkedin.com/in/dirkgerrits" title="My LinkedIn profile"><img src="/images/linked-in.png" alt="My LinkedIn profile"/></a>
-              <a href="/rss.xml" title="Subscribe to my blog via RSS"><img src="/images/rss-feed-icon-28x28.png" alt="Subscribe to my blog via RSS"/></a>
-              <a href="#" title="Subscribe to my blog via e-mail"><img src="/images/email-feed-icon-28x28.png" alt="Subscribe to my blog via e-mail"/></a>
-            </li>
-          </ul>
-        </div>
-        $if(blog)$
-        <div id="subNav">
-          <ul class="blog">
-            $if(previousPost)$
-            <li><a href="$previousPost$">&laquo; Previous post</a></li>
-            $else$
-            <li><span>&laquo; Previous post</span></li>
-            $endif$
-            $if(archive)$
-            <li><a href="/">Latest post</a></li>
-            $else$$if(nextPost)$
-            <li><a href="/">Latest post</a></li>
-            $else$
-            <li><span class="selected">Latest post</span></li>
-            $endif$$endif$
-            $if(archive)$
-            <li><span class="selected">All posts</span></li>
-            $else$
-            <li><a href="/posts/">All posts</a></li>
-            $endif$
-            $if(nextPost)$
-            <li><a href="$nextPost$">Next post &raquo;</a></li>
-            $else$
-            <li><span>Next post &raquo;</span></li>
-            $endif$
-          </ul>
-        </div>
-        $endif$
-        $if(publications)$
-        <div id="subNav">
-          <ul class="publications">
-            <li><a href="#conference-and-journal-papers">Conference &amp; journal papers</a></li>
-            <li><a href="#theses-and-dissertations">Theses &amp; dissertations</a></li>
-            <li><a href="#unpublished-articles">Unpublished articles</a></li>
-          </ul>
-        </div>
-        $endif$
-      </nav>
-    </header>
-    <div class="main" role="main">
-      <article role="article">
-        $body$
-      </article>
-    </div>
+    <div id="container"><div id="content">
+      <header role="banner" id="top">
+        <img src="/images/joy.jpg" width="940" height="198"/>
+        <nav role="navigation">
+          <div id="mainNav">
+            <ul>
+              $if(about)$
+              <li class="about"><span class="selected">Dirk Gerrits</span></li>
+              $else$
+              <li class="about"><a href="/about/">Dirk Gerrits</a></li>
+              $endif$
+              $if(blog)$
+              <li class="blog"><span class="selected">Blog</span></li>
+              $else$
+              <li class="blog"><a href="/posts/">Blog</a></li>
+              $endif$
+              $if(publications)$
+              <li class="publications"><span class="selected">Publications</span></li>
+              $else$
+              <li class="publications"><a href="/publications/">Publications</a></li>
+              $endif$
+              $if(programming)$
+              <li class="programming"><span class="selected">Programming</span></li>
+              $else$
+              <li class="programming"><a href="/programming/">Programming</a></li>
+              $endif$
+              <li class="social-media">
+                <a href="mailto:dirk.gerrits@gmail.com" title="E-mail me"><img src="/images/email-icon-28x28.png" alt="E-mail me"/></a>
+                <a href="https://www.google.com/+DirkGerrits" title="My Google+ profile"><img src="/images/google-plus-icon-28x28.png" alt="My Google+ profile"/></a>
+                <a href="https://www.facebook.com/dirk.gerrits" title="My Facebook profile"><img src="/images/facebook-icon-28x28.png" alt="My Facebook profile"/></a>
+                <a href="https://nl.linkedin.com/in/dirkgerrits" title="My LinkedIn profile"><img src="/images/linked-in.png" alt="My LinkedIn profile"/></a>
+                <a href="/rss.xml" title="Subscribe to my blog via RSS"><img src="/images/rss-feed-icon-28x28.png" alt="Subscribe to my blog via RSS"/></a>
+                <a href="#" title="Subscribe to my blog via e-mail"><img src="/images/email-feed-icon-28x28.png" alt="Subscribe to my blog via e-mail"/></a>
+              </li>
+            </ul>
+          </div>
+          $if(blog)$
+          <div id="subNav">
+            <ul class="blog">
+              $if(previousPost)$
+              <li><a href="$previousPost$">&laquo; Previous post</a></li>
+              $else$
+              <li><span>&laquo; Previous post</span></li>
+              $endif$
+              $if(archive)$
+              <li><a href="/">Latest post</a></li>
+              $else$$if(nextPost)$
+              <li><a href="/">Latest post</a></li>
+              $else$
+              <li><span class="selected">Latest post</span></li>
+              $endif$$endif$
+              $if(archive)$
+              <li><span class="selected">All posts</span></li>
+              $else$
+              <li><a href="/posts/">All posts</a></li>
+              $endif$
+              $if(nextPost)$
+              <li><a href="$nextPost$">Next post &raquo;</a></li>
+              $else$
+              <li><span>Next post &raquo;</span></li>
+              $endif$
+            </ul>
+          </div>
+          $endif$
+          $if(publications)$
+          <div id="subNav">
+            <ul class="publications">
+              <li><a href="#conference-and-journal-papers">Conference &amp; journal papers</a></li>
+              <li><a href="#theses-and-dissertations">Theses &amp; dissertations</a></li>
+              <li><a href="#unpublished-articles">Unpublished articles</a></li>
+            </ul>
+          </div>
+          $endif$
+        </nav>
+      </header>
+      <div class="main" role="main">
+        <article role="article">
+          $body$
+        </article>
+      </div>
+    </div></div>
     <footer role="contentinfo">
       <a href="#top" title="Back to top" class="back-top left">&And;</a>
       <a href="#top" title="Back to top" class="back-top right">&And;</a>

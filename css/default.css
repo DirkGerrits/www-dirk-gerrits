@@ -19,8 +19,9 @@ time, mark, audio, video {
   vertical-align: baseline;
   background: transparent;
 }
-body {
+html, body {
   line-height: 1;
+  height: 100%;    
 }
 article,aside,details,figcaption,figure,
 footer,header,hgroup,menu,nav,section {
@@ -41,13 +42,11 @@ a {
   vertical-align: baseline;
   background: transparent;
 }
-/* change colours to suit your needs */
 ins {
   background-color: #ff9;
   color: #000;
   text-decoration: none;
 }
-/* change colours to suit your needs */
 mark {
   background-color: #ff9;
   color: #000;
@@ -62,7 +61,6 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-/* change border colour to suit your needs */
 hr {
   display: block;
   height: 1px;
@@ -75,7 +73,9 @@ input, select {
   vertical-align: middle;
 }
 
-/* Overall */
+/**********************************************************************/
+/* OVERALL                                                            */
+/**********************************************************************/
 body {
   font-family: Georgia, serif;
   font-size: 1.1875em; /* 19px */
@@ -83,13 +83,13 @@ body {
   background-color: #f1f1f1;
   color: #333333;
 }
-body > header, body > footer {
+header, footer {
   max-width: 940px;
   margin: 0 auto;
 }
 /* <div class="main>" should really be <main>, but various browsers
    (such as MSIE and the one in Android 2.3) don't support <main> */
-body > .main {
+.main {
   text-align: justify;
   max-width: 640px;
   margin: 50px auto;
@@ -112,7 +112,7 @@ ul, ol {
   padding-left: 27.5px;
 }
 table, ul, ol {
-  margin-bottom: 0.5em;
+  margin: 0.5em 0;
 }
 th, td {
   margin: 1px;
@@ -132,7 +132,9 @@ code, pre, tt {
   margin-bottom: 25px;    
 }
 
-/* Header */
+/**********************************************************************/
+/* HEADER                                                             */
+/**********************************************************************/
 header img {
   max-width: 100%;
   height: auto;
@@ -280,8 +282,9 @@ purple #984ea3   #723b7a
 orange #ff7f00   #bf5f00
 */
 
-
-/* Main */
+/**********************************************************************/
+/* MAIN                                                               */
+/**********************************************************************/
 h1, h2, h3, h4, h5, h6 { color: #222; }
 h1 { font-size: 2em; line-height: 1.25; margin-bottom: .67em; }
 h2 { font-size: 1.5em; margin: .75em 0; }
@@ -289,14 +292,12 @@ h3 { font-size: 1.17em; margin: .83em 0; }
 h4, p { margin: 1.12em 0; }
 h5 { font-size: .83em; margin: 1.5em 0; }
 h6 { font-size: .75em; margin: 1.67em 0; }
-
 .subheader {
   font-size: .75em;
   margin-top: -1.5em;
   margin-bottom: 2em;
   color: #555555;
 }
-
 img {
   margin: 0 auto;
   display: block;
@@ -309,6 +310,7 @@ figcaption {
   margin-top: 15px;
 }
 
+/* Blog */
 tr > .date {
   text-align: right;
   padding-right: 0.5em;    
@@ -318,11 +320,42 @@ tr > .title {
   padding-left: 0.5em;    
 }
 
-/* Footer */
+/* Publications */
+.unpublished {
+  color: #377eb8;
+}
+.workshop {
+  color: #4daf4a;
+}
+.conference, .msc-thesis {
+  color: #984ea3;
+}
+.journal, .phd-thesis {
+  color: #ff7f00;
+}
+
+/* Programming */
+tr > .project {
+  padding-right: 0.5em;    
+}
+tr > .languages {
+  padding-left: 0.5em;    
+}
+
+/**********************************************************************/
+/* FOOTER                                                             */
+/**********************************************************************/
+#container {
+  min-height: 100%;
+}
+#content {
+  padding-bottom: 2.5em;
+}
 footer {
   text-align: center;
   font-size: 0.75em;
-  margin: 0;
+  height: 2.5em;
+  margin-top: -2.5em;
 }
 footer p {
   padding: 0.5em 0;
@@ -344,7 +377,7 @@ footer p {
   float: right;
   margin-right: 0;
 }
-body > footer {
+footer {
   color: #f1f1f1;
   background-color: #222222;
   padding: 0 10px;
@@ -354,20 +387,6 @@ body > footer {
   -moz-border-radius-topleft: 10px;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
-}
-
-/* Publications */
-.unpublished {
-  color: #377eb8;
-}
-.workshop {
-  color: #4daf4a;
-}
-.conference, .msc-thesis {
-  color: #984ea3;
-}
-.journal, .phd-thesis {
-  color: #ff7f00;
 }
 
 /* WORKAROUND: "text-decoration: line-through;" doesn't seem centered vertically */
