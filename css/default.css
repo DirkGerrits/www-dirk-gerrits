@@ -114,7 +114,7 @@ ul, ol {
 table, ul, ol {
   margin: 0.5em 0;
 }
-li {
+article > li {
   margin-top: 0.5em;
 }
 code, pre, tt {
