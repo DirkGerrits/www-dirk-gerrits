@@ -2,12 +2,13 @@
 
 <table>
   <thead>
-    <tr><th>Project</th><th>Languages</th></tr>
+    <tr><th>Project</th><th>Source</th><th>Languages</th></tr>
   </thead>
   <tbody>
     $for(projects)$
     <tr>
-      <td class="project"><a href="$source$" title="Source repository for $name$">$name$</a></td>
+      <td class="project"><a href="$url$" title="$name$">$name$</a></td>
+      <td class="source">$if(source-name)$<a href="$source-url$" title="$name$ source code on $source-name$">$source-name$</a>$endif$</td>
       <td class="languages">$languages$</td>
     </tr>
     $endfor$

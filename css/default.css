@@ -409,7 +409,7 @@ tr > .title {
 }
 
 /* Programming */
-tr > .project {
+tr > .project, tr > .source {
   padding-right: 1em;
 }
 tr > .languages {
