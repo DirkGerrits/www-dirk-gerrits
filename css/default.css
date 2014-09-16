@@ -435,12 +435,15 @@ footer p {
   margin: 0;
 }
 .back-top, .back-top:link, .back-top:visited {
-  font-size: 1.5em;
-  color: #f1f1f1;
+  width: 14px;
+  height: 15px;
+  position: relative;
+  top: 50%;
+  margin-top: -7.5px;
+  background: url('/images/top-icon.png') 0 0;
 }
 .back-top:hover {
-  text-decoration: none;
-  color: #377eb8;
+  background: url('/images/top-icon.png') 14px 0;
 }
 .left {
   float: left;
