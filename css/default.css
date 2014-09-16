@@ -158,7 +158,7 @@ nav li {
 nav {
   color: #f1f1f1;
 }
-nav a, nav a:visited, nav a:hover, nav span {
+nav a, nav a:link, nav a:visited, nav a:hover, nav span {
   text-decoration: none;
   display: inline-block;
   color: #f1f1f1;
