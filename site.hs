@@ -156,6 +156,20 @@ main = do
                 >>= loadAndApplyTemplate "templates/default.html" projectsContext
                 >>= relativizeUrls
 
+    -- For now, set up an unlisted dummy page for what little
+    -- programming I did for my PhD thesis.  Want to make a proper
+    -- GitHub repository & page at a later date.
+    match "flying-labels-temp.md" $ compile myPandocCompiler
+    create ["programming/flying-labels.html"] $ do
+        route directoryRoute
+        compile $ do
+            content <- loadBody "flying-labels-temp.md"
+            let context = constField "body" content <>
+                          defaultContext
+            makeItem ""
+                >>= loadAndApplyTemplate "templates/default.html" context
+                >>= relativizeUrls
+
     match "posts/*" $ do
         route $ setExtension "html"
         compile $ myPandocPostCompiler
