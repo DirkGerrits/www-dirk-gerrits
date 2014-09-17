@@ -444,6 +444,7 @@ footer p {
 }
 .back-top:hover {
   background: url('/images/top-icon.png') 14px 0;
+  text-decoration: none;
 }
 .left {
   float: left;
